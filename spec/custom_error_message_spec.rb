@@ -32,22 +32,22 @@ describe "error messages" do
   end
   
   describe "with standard messages" do
-    it "should return a standard error message" do
+    it "returns a standard error message" do
       @user = User.create
-      @user.errors.full_messages.should include "Name can't be blank"
+      expect(@user.errors.full_messages).to include "Name can't be blank"
     end
   end
   
   describe "with custom messages" do
-    it "should return the full message specified" do
+    it "returns the full message specified" do
       @user = User.create
-      @user.errors.full_messages.should include "Your email is invalid"
+      expect(@user.errors.full_messages).to include "Your email is invalid"
     end
     
     describe "on nested attributes" do
-      it "should return the full message specified" do
+      it "returns the full message specified" do
         @user = User.create(roles_attributes: [{}])
-        @user.errors.full_messages.should include "You must enter a role"
+        expect(@user.errors.full_messages).to include "You must enter a role"
       end
     end    
   end  
