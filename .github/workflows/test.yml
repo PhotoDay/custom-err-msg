@@ -34,6 +34,9 @@ jobs:
             gem install bundler
           fi
 
+      - name: Remove Bundler frozen setting
+        run: bundle config set --local frozen 'false'
+
       - name: Install dependencies
         run: |
           echo "gem 'rails', '~> ${{ matrix.rails-version }}'" >> Gemfile
