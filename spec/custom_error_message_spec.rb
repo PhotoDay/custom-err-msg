@@ -17,7 +17,7 @@ class Role < ActiveRecord::Base
   has_many :user_roles
   has_many :users, through: :user_roles
   
-  validates :role, presence: { message: "^You must enter a role" }
+  validates :name, presence: { message: "^You must enter a role name" }
 end
 
 class UserRole < ActiveRecord::Base
@@ -47,7 +47,7 @@ describe "error messages" do
     describe "on nested attributes" do
       it "returns the full message specified" do
         @user = User.create(roles_attributes: [{}])
-        expect(@user.errors.full_messages).to include "You must enter a role"
+        expect(@user.errors.full_messages).to include "You must enter a role name"
       end
     end    
   end  
