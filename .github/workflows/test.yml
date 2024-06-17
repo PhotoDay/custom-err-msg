@@ -24,15 +24,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby-version }}
+          bundler: default
           bundler-cache: true
-
-      - name: Install Bundler
-        run: |
-          if [[ "${{ matrix.ruby-version }}" == "2.7" ]]; then
-            gem install bundler -v '~> 1.17'
-          else
-            gem install bundler
-          fi
 
       - name: Remove Bundler frozen setting
         run: bundle config set --local frozen 'false'
