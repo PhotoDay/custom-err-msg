@@ -1,5 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rspec'
 gem 'activerecord'
-gem 'sqlite3-ruby'
+
+group :test do
+  gem 'rake'
+  gem 'rspec'
+  gem 'sqlite3', '~> 1.4'
+end

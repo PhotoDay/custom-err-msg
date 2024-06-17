@@ -14,7 +14,7 @@ Usage
 
 Sometimes generated error messages don't make sense.
 
-    validates_acceptance_of :accepted_terms, :message => 'Please accept the terms of service'
+    validates_acceptance_of :accepted_terms, message: 'Please accept the terms of service'
 
 This generates the error message:
 
@@ -22,7 +22,7 @@ This generates the error message:
     
 This plugin uses the carat (^) to omit the name of the attribute from error messages:
 
-    validates_acceptance_of :accepted_terms, :message => '^Please accept the terms of service'
+    validates_acceptance_of :accepted_terms, message: '^Please accept the terms of service'
     
 This now generates:
 
