@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
   has_many :user_roles
   has_many :roles, through: :user_roles
   
-  validates_presence_of :name
-  validates_presence_of :email, message: "^Your email is invalid"
+  validates :name, presence: true
+  validates :email, presence: { message: "^Your email is invalid" }
   
   accepts_nested_attributes_for :roles 
 end
@@ -17,7 +17,7 @@ class Role < ActiveRecord::Base
   has_many :user_roles
   has_many :users, through: :user_roles
   
-  validates_presence_of :role, message: "^You must enter a role"
+  validates :role, presence: { message: "^You must enter a role" }
 end
 
 class UserRole < ActiveRecord::Base
