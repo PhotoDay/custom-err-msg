@@ -5,5 +5,5 @@ gem 'activerecord'
 group :test do
   gem 'rake'
   gem 'rspec'
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3'
 end
