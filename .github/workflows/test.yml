@@ -26,6 +26,7 @@ jobs:
           ruby-version: ${{ matrix.ruby-version }}
           bundler: default
           bundler-cache: true
+          cache-version: 2
 
       - name: Remove Bundler frozen setting
         run: bundle config set --local frozen 'false'
